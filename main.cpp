@@ -84,7 +84,7 @@ int main() {
             case 10:
                 total_goat(trip);
                 break;
-            case 11;
+            case 11:
                 average_goat(trip);
                 break;
             
@@ -224,3 +224,5 @@ void average_goat (const list<Goat>& trip) {
     totalAge = totalAge / trip.size();
     cout << "The average goat age is: " << totalAge << endl;
 }
+
+// clear_goat function
