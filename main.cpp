@@ -2,8 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
-#include <algorithm> // For min_element, max_element
-#include <numeric>   // For accumulate
+#include <algorithm> // min_element
 #include <set>
 #include "Goat.h"
 using namespace std;
@@ -66,6 +65,9 @@ int main() {
             case 3:    
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
+                break;
+            case 5;
+                youngest_goat(trip);
                 break;
             default:
                 cout << "Invalid selection.\n";
@@ -149,7 +151,7 @@ void youngest_goat(const list<Goat>& trip) {
         return a.get_age() < b.get_age();
     });
     if (it != trip.end()) {
-        cout << "The youngest goat is " << it->get_name() << " with age " << it->get_age() << "." << endl;
+        cout << "Youngest goat:" << it->get_name() << ", Age: " << it->get_age() << "." << endl;
     }
 }
 
