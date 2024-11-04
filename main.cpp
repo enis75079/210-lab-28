@@ -87,7 +87,9 @@ int main() {
             case 11:
                 average_goat(trip);
                 break;
-            
+            case 12:
+                clear_goat(trip);
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
