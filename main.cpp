@@ -66,13 +66,13 @@ int main() {
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
                 break;
-            case 5;
+            case 5:
                 youngest_goat(trip);
                 break;
-            case 6;
+            case 6:
                 oldest_goat(trip);
                 break;
-            case 7;
+            case 7:
                 count_goat(trip);
                 break;
             default:
@@ -177,3 +177,6 @@ void count_goat(const list<Goat>& trip) {
     int totalGoats = trip.size();
     cout << "Total Goats: " << totalGoats << endl;
 }
+
+// sort_goat function. sorts the goats by name using sort
+void sort_goat(const list<Goat>& trip)
