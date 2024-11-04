@@ -75,6 +75,14 @@ int main_menu() {
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
     cout << "[4] Quit\n";
+    cout << "[5] Youngest Goat" << endl;
+    cout << "[6] Oldest Goat" << endl;
+    cout << "[7] How many goats" << endl;
+    cout << "[8] Sort goats" << endl;
+    cout << "[9] " << endl;
+    cout << "[10] Total goats" << endl;
+    cout << "[11] Average age of current goats" << endl;
+    cout << "[12] Delete all goats" << endl;
     cout << "Choice --> ";
     int choice;
     cin >> choice;
