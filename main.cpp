@@ -225,4 +225,8 @@ void average_goat (const list<Goat>& trip) {
     cout << "The average goat age is: " << totalAge << endl;
 }
 
-// clear_goat function
+// clear_goat function. deletes all goats
+void clear_goat(list<Goat>& trip) {
+    trip.clear();
+    cout << "Deleted all goats." << endl;
+}
