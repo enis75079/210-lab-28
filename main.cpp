@@ -195,10 +195,8 @@ void unique_color(const list<Goat>&) {
 
     for (const auto& goat : trip) {
         if (goat.get_color() == color) {
-            
-        }
+            cout << goat.get_name() << "[" << goat.get_age() << "]" << endl;
     }
-    
 
 }
 
