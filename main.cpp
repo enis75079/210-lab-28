@@ -2,50 +2,51 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <algorithm> // For min_element, max_element
+#include <numeric>   // For accumulate
+#include <set>
 #include "Goat.h"
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25;
 
-int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat>& trip);
-void youngest_goat(list<Goat>& trip);
-void oldest_goat(list<Goat>& trip);
-void count_goat(list<Goat>& trip);
-void sort_goat(list<Goat>& trip);
-void unique_color(list<Goat>& trip);
-void total_goat(list<Goat>& trip);
-void average_goat(list<Goat>& trip);
-void clear_goat(list<Goat>& trip);
+int select_goat(const list<Goat>&);
+void delete_goat(list<Goat>&);
+void add_goat(list<Goat>&, string[], string[]);
+void display_trip(const list<Goat>&);
+void youngest_goat(const list<Goat>&);
+void oldest_goat(const list<Goat>&);
+void count_goat(const list<Goat>&);
+void sort_goat(list<Goat>&);
+void unique_color(const list<Goat>&);
+void total_goat(const list<Goat>&);
+void average_goat(const list<Goat>&);
+void clear_goat(list<Goat>&);
 int main_menu();
 
 int main() {
     srand(time(0));
-    bool again;
 
-    // read & populate arrays for names and colors
+    // Read and populate arrays for names and colors
     ifstream fin("names.txt");
     string names[SZ_NAMES];
     int i = 0;
     while (fin >> names[i++]);
     fin.close();
+
     ifstream fin1("colors.txt");
     string colors[SZ_COLORS];
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
 
-    // create & populate a trip of Goats using std::list of random size 8-15
+    // Create and populate a trip of Goats using std::list of random size 8-15
     int tripSize = rand() % 8 + 8;
     list<Goat> trip;
-    int age;
-    string name, color;
     for (int i = 0; i < tripSize; i++) {
-        age = rand() % MAX_AGE;  // defined in Goat.h
-        name = names[rand() % SZ_NAMES];
-        color = colors[rand() % SZ_COLORS];
+        int age = rand() % MAX_AGE;  // defined in Goat.h
+        string name = names[rand() % SZ_NAMES];
+        string color = colors[rand() % SZ_COLORS];
         Goat tmp(name, age, color);
         trip.push_back(tmp);
     }
@@ -72,7 +73,6 @@ int main() {
         }
         sel = main_menu();
     }
-    
 
     return 0;
 }
@@ -83,18 +83,18 @@ int main_menu() {
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
     cout << "[4] Quit\n";
-    cout << "[5] Youngest Goat" << endl;
-    cout << "[6] Oldest Goat" << endl;
-    cout << "[7] How many goats" << endl;
-    cout << "[8] Sort goats" << endl;
-    cout << "[9] Unique goats by color" << endl;
-    cout << "[10] Total goats" << endl;
-    cout << "[11] Average age of current goats" << endl;
-    cout << "[12] Delete all goats" << endl;
+    cout << "[5] Youngest Goat\n";
+    cout << "[6] Oldest Goat\n";
+    cout << "[7] How many goats\n";
+    cout << "[8] Sort goats\n";
+    cout << "[9] Unique goats by color\n";
+    cout << "[10] Total goats\n";
+    cout << "[11] Average age of current goats\n";
+    cout << "[12] Delete all goats\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 4) {
+    while (choice < 1 || choice > 12) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
@@ -105,7 +105,7 @@ void delete_goat(list<Goat> &trip) {
     cout << "DELETE A GOAT\n";
     int index = select_goat(trip);
     auto it = trip.begin();
-    advance(it, index-1);
+    advance(it, index - 1);
     trip.erase(it);
     cout << "Goat deleted. New trip size: " << trip.size() << endl;
 }
@@ -120,31 +120,36 @@ void add_goat(list<Goat> &trip, string nms[], string cls[]) {
     cout << "Goat added. New trip size: " << trip.size() << endl;
 }
 
-void display_trip(list<Goat> trp) {
+void display_trip(const list<Goat>& trip) {
     int i = 1;
-    for (auto gt: trp)
+    for (const auto& gt : trip) {
         cout << "\t" 
              << "[" << i++ << "] "
              << gt.get_name() 
              << " (" << gt.get_age() 
              << ", " << gt.get_color() << ")\n";
+    }
 }
 
-int select_goat(list<Goat> trp) {
+int select_goat(const list<Goat>& trip) {
     int input;
     cout << "Make a selection:\n";
-    display_trip(trp);
+    display_trip(trip);
     cout << "Choice --> ";
     cin >> input;
-    while (input < 1 or input > trp.size()) {
+    while (input < 1 || input > trip.size()) {
         cout << "Invalid choice, again --> ";
         cin >> input;
     }
     return input;
 }
 
-void youngest_goat(list<Goat>& trip) {
+void youngest_goat(const list<Goat>& trip) {
     auto it = min_element(trip.begin(), trip.end(), [](const Goat& a, const Goat& b) {
         return a.get_age() < b.get_age();
     });
+    if (it != trip.end()) {
+        cout << "The youngest goat is " << it->get_name() << " with age " << it->get_age() << "." << endl;
+    }
 }
+
