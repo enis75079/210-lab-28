@@ -11,16 +11,15 @@ int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
-vodi youngest_goat(listGoat> & trip);
+void youngest_goat(listGoat> & trip);
+void oldest_goat(listGoat> & trip);
+void count_goat(listGoat> & trip);
+void sort_goat(listGoat> & trip);
+void unique_color(listGoat> & trip);
+void total_goat(listGoat> & trip);
+void average_goat(listGoat> & trip);
+void delete_goat(listGoat> & trip);
 int main_menu();
-    cout << "[5] Youngest Goat" << endl;
-    cout << "[6] Oldest Goat" << endl;
-    cout << "[7] How many goats" << endl;
-    cout << "[8] Sort goats" << endl;
-    cout << "[9] Unique goats by color" << endl;
-    cout << "[10] Total goats" << endl;
-    cout << "[11] Average age of current goats" << endl;
-    cout << "[12] Delete all goats" << endl;
 
 int main() {
     srand(time(0));
@@ -143,3 +142,14 @@ int select_goat(list<Goat> trp) {
     }
     return input;
 }
+
+void youngest_goat(listGoat> & trip) {
+    auto it = min_element(trip.begin(), trip.end())
+}
+void oldest_goat(listGoat> & trip);
+void count_goat(listGoat> & trip);
+void sort_goat(listGoat> & trip);
+void unique_color(listGoat> & trip);
+void total_goat(listGoat> & trip);
+void average_goat(listGoat> & trip);
+void delete_goat(listGoat> & trip);
