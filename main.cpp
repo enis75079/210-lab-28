@@ -69,6 +69,12 @@ int main() {
             case 5;
                 youngest_goat(trip);
                 break;
+            case 6;
+                oldest_goat(trip);
+                break;
+            case 7;
+                count_goat(trip);
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -146,6 +152,7 @@ int select_goat(const list<Goat>& trip) {
     return input;
 }
 
+// youngest_goat function. finds the youngest goat
 void youngest_goat(const list<Goat>& trip) {
     auto it = min_element(trip.begin(), trip.end(), [](const Goat& a, const Goat& b) {
         return a.get_age() < b.get_age();
@@ -155,3 +162,18 @@ void youngest_goat(const list<Goat>& trip) {
     }
 }
 
+// oldest_goat function. finds the oldest goat
+void oldest_goat(const list<Goat>& trip) {
+    auto it = max_element(trip.begin(), trip.end(), [](const Goat& a, const Goat& b) {
+        return a.get_age() < b.get_age();
+    });
+    if (it != trip.end()) {
+        cout << "Oldest goat:" << it->get_name() << ", Age: " << it->get_age() << "." << endl;
+    }
+}
+
+// count)goat function. counts the total amount of goats in the list and outputs the number
+void count_goat(const list<Goat>& trip) {
+    int totalGoats = trip.size();
+    cout << "Total Goats: " << totalGoats << endl;
+}
