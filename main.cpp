@@ -209,3 +209,11 @@ void total_goat(const list<Goat>& trip) {
 }
 
 // average_goat function. calcluates the average age of the goats
+void average_goatconst (list<Goat>& trip) {
+    int totalAge = 0;
+    for (const auto& goat : trip) {
+        totalAge += goat.get_age();
+    }
+    totalAge = totalAge / trip.size();
+    cout << "The average goat age is: " << totalAge << endl;
+}
