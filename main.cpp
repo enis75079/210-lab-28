@@ -1,8 +1,15 @@
+/*
+
+lab28: STL Algorithms
+COMSC-210
+Naveen Islam
+
+*/
 #include <iostream>
 #include <fstream>
 #include <iomanip>
 #include <list>
-#include <algorithm> // min_element
+#include <algorithm> // min and max elements
 #include <set>
 #include "Goat.h"
 using namespace std;
@@ -23,6 +30,7 @@ void average_goat(const list<Goat>&);
 void clear_goat(list<Goat>&);
 int main_menu();
 
+// main funtion
 int main() {
     srand(time(0));
 
