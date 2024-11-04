@@ -81,6 +81,13 @@ int main() {
             case 9:
                 unique_color(trip);
                 break;
+            case 10:
+                total_goat(trip);
+                break;
+            case 11;
+                average_goat(trip);
+                break;
+            
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -209,7 +216,7 @@ void total_goat(const list<Goat>& trip) {
 }
 
 // average_goat function. calcluates the average age of the goats
-void average_goatconst (list<Goat>& trip) {
+void average_goat (const list<Goat>& trip) {
     int totalAge = 0;
     for (const auto& goat : trip) {
         totalAge += goat.get_age();
