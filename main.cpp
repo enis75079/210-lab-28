@@ -78,6 +78,9 @@ int main() {
             case 8:
                 sort_goat(trip);
                 break;
+            case 9:
+                unique_color(trip);
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -188,18 +191,15 @@ void sort_goat(list<Goat>& trip) {
 }
 
 // unique_color function. displays all that are goats with user input color
-void unique_color(const list<Goat>&) {
+void unique_color(const list<Goat>& trip) {
     string userColor;
     cout << "Color: ";
     cin >> userColor;
 
     for (const auto& goat : trip) {
-        if (goat.get_color() == color) {
+        if (goat.get_color() == userColor) {
             cout << goat.get_name() << "[" << goat.get_age() << "]" << endl;
     }
 
+    }
 }
-
-void total_goat(const list<Goat>&);
-void average_goat(const list<Goat>&);
-void clear_goat(list<Goat>&);
