@@ -179,4 +179,12 @@ void count_goat(const list<Goat>& trip) {
 }
 
 // sort_goat function. sorts the goats by name using sort
-void sort_goat(const list<Goat>& trip)
+void sort_goat(const list<Goat>& trip) {
+    trip.sort();
+    cout << "Sorted Goats." << endl;
+}
+
+// unique_color function. displays all that are goats with user input color
+void unique_color(const list<Goat>&) {
+
+}
