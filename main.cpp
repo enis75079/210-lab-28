@@ -18,7 +18,7 @@ void sort_goat(list<Goat>& trip);
 void unique_color(list<Goat>& trip);
 void total_goat(list<Goat>& trip);
 void average_goat(list<Goat>& trip);
-void delete_goat(list<Goat>& trip);
+void clear_goat(list<Goat>& trip);
 int main_menu();
 
 int main() {
@@ -143,8 +143,8 @@ int select_goat(list<Goat> trp) {
     return input;
 }
 
-void youngest_goat(listGoat>& trip) {
-    auto it = min_element(trip.begin(), trip.end, [](const Goat& a, const Goat& b) {
+void youngest_goat(list<Goat>& trip) {
+    auto it = min_element(trip.begin(), trip.end(), [](const Goat& a, const Goat& b) {
         return a.get_age() < b.get_age();
     });
 }
