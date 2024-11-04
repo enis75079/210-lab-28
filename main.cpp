@@ -199,7 +199,13 @@ void unique_color(const list<Goat>& trip) {
     for (const auto& goat : trip) {
         if (goat.get_color() == userColor) {
             cout << goat.get_name() << "[" << goat.get_age() << "]" << endl;
-    }
-
+        }
     }
 }
+
+// total_goat function. counts all the goats in the map
+void total_goat(const list<Goat>& trip) {
+    cout << "Total goats: " << trip.size() << endl;
+}
+
+// average_goat function. calcluates the average age of the goats
